@@ -1,10 +1,8 @@
-const { Client, LocalAuth } = require('whatsapp-web.js');
-const qrcode = require('qrcode-terminal');
-
 const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
         headless: true,
+        executablePath: process.env.CHROME_BIN || '/usr/bin/chromium',
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
@@ -13,7 +11,6 @@ const client = new Client({
         ]
     }
 });
-
 const settings = {};
 const warnings = {};
 
