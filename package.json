@@ -5,7 +5,7 @@
 "main": "index.js",
 "scripts": {
 "start": "node index.js",
-"postinstall": "node -e \"if (process.env.RENDER) process.exit(0)\" || true"
+"postinstall": "node -e \"if (process.platform !== 'android') require('child_process').execSync('npx puppeteer browsers install chrome', {stdio:'inherit'})\""
 },
 "keywords": [],
 "author": "",
